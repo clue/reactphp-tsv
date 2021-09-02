@@ -18,11 +18,19 @@ Dave	1995-01-01	3.1.1.1
 Once [installed](#install), you can use the following code to read a TSV stream from `STDIN`:
 
 ```php
-$stdin = new React\Stream\ReadableResourceStream(STDIN, $loop);
-$stream = new Clue\React\Tsv\Decoder($stdin);
+<?php
+
+require __DIR__ . '/vendor/autoload.php';
+
+$stdin = new React\Stream\ReadableResourceStream(STDIN);
+$stream = new Clue\React\Tsv\TsvDecoder($stdin);
 
 $stream->on('data', function ($data) {
     echo 'Name ' . $data['name'] . '\'s birthday is ' . $data['birthday'] . PHP_EOL;
+});
+
+$stream->on('error', function (Exception $e) {
+    echo 'Error: ' . $e->getMessage() . PHP_EOL;
 });
 ```
 
@@ -32,7 +40,7 @@ You can now process this example by running this on the command line:
 $ php birthdays.php < users.tsv 
 Alice's birthday is 2017-01-01
 Carol's birthday is 2006-01-01
-Dave's birthday is 1995-01-01  3.1.1.1
+Dave's birthday is 1995-01-01
 ```
 
 ## Install
