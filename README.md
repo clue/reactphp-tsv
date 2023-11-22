@@ -33,7 +33,7 @@ This way, more people get a chance to take a look at the code before the public 
 ## Quickstart example
 
 TSV (Tab-Separated Values) is a very simple text-based format for storing a
-large number of (uniform) records, such as a list of temparature records or log
+large number of (uniform) records, such as a list of temperature records or log
 entries.
 
 ```
@@ -94,11 +94,11 @@ commonly Character-Separated Values), it is more than just a small variation.
 
 * TSV always uses a tab stop (`\t`) as a delimiter between fields, CSV uses a
   comma (`,`) by default, but some applications use variations such as a
-  semicolon (`;`) or other application-dependant characters (this is
+  semicolon (`;`) or other application-dependent characters (this is
   particularly common for systems in Europe (and elsewhere) that use a comma as
   decimal separator).
 * TSV always uses field names in the first row, CSV allows for optional field
-  names (which is application-dependant).
+  names (which is application-dependent).
 * TSV always uses the same number of fields for all rows, CSV allows for rows
   with different number of fields (though this is rarely used).
 * CSV requires quoting
@@ -113,7 +113,7 @@ TSV files are commonly limited to only ASCII characters for best interoperabilit
 However, many legacy TSV files often use ISO 8859-1 encoding or some other
 variant. Newer TSV files are usually best saved as UTF-8 and may thus also
 contain special characters from the Unicode range. The text-encoding is usually
-application-dependant, so your best bet would be to convert to (or assume) UTF-8
+application-dependent, so your best bet would be to convert to (or assume) UTF-8
 consistently.
 
 Despite its shortcomings, TSV is widely used and this is unlikely to change any
@@ -182,7 +182,7 @@ it will emit an `error` event and then `close` the input stream:
 
 ```php
 $stream->on('error', function (Exception $error) {
-    // an error occured, stream will close next
+    // an error occurred, stream will close next
 });
 ```
 
@@ -255,7 +255,7 @@ it will emit an `error` event and then `close` the input stream:
 
 ```php
 $stream->on('error', function (Exception $error) {
-    // an error occured, stream will close next
+    // an error occurred, stream will close next
 });
 ```
 
